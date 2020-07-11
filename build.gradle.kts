@@ -26,5 +26,19 @@ kotlin {
                 implementation(kotlin("test-annotations-common"))
             }
         }
+
+        jvm().compilations["main"].defaultSourceSet {
+            dependencies {
+                implementation(kotlin("stdlib-jdk8"))
+            }
+        }
+
+        // JVM-specific tests and their dependencies:
+        jvm().compilations["test"].defaultSourceSet {
+            dependencies {
+                implementation(kotlin("test-junit"))
+            }
+        }
+
     }
 }
