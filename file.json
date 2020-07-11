@@ -1,0 +1,2528 @@
+{
+  "version": "4.0.8",
+  "model": "3.2.0",
+  "sections": [
+    {
+      "title": "miscellaneous",
+      "key": "section_miscellaneous",
+      "type": "hidden",
+      "description": "Misc. Data",
+      "fields": [
+        {
+          "key": "loanType",
+          "typeField": "hidden",
+          "label": "Loan Type",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_branch",
+          "typeField": "hidden",
+          "label": "Client Branch",
+          "validation": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "Data Pribadi",
+      "key": "section_data_pribadi",
+      "description": "Data Mengenai Mitra",
+      "icon": "csr/assets/icon/ic_person.png",
+      "sections": [
+        {
+          "title": "Data Kartu Identitas",
+          "description": "",
+          "key": "data_kartu_identitas",
+          "sections": null,
+          "fields": [
+            {
+              "key": "photo_client_square",
+              "typeField": "picture_square",
+              "label": "Foto Mitra",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "photo_client_selfie",
+              "typeField": "picture",
+              "label": "Foto Selfie BP dengan Mitra",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "photo_ktp",
+              "typeField": "picture",
+              "label": "Foto KTP",
+              "options": null
+            },
+            {
+              "key": "client_identity_type",
+              "typeField": "select",
+              "label": "Jenis Kartu Identitas",
+              "icon": "csr/assets/icon/ic_id_icon.png",
+              "options": [
+                {
+                  "label": "KTP",
+                  "value": "ktp"
+                },
+                {
+                  "label": "KITAS",
+                  "value": "kitas"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_ktp",
+              "typeField": "text-number",
+              "label": "Nomor Kartu Identitas",
+              "options": null,
+              "validation": {
+                "required": true,
+                "exactLength": 16
+              }
+            },
+            {
+              "key": "client_id_card_valid_through",
+              "typeField": "date",
+              "label": "Tanggal Berakhir Kartu Identitas",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_nationality",
+              "typeField": "select",
+              "label": "Kewarganegaraan",
+              "options": [
+                {
+                  "label": "Indonesia (WNI)",
+                  "value": "wni"
+                },
+                {
+                  "label": "Asing (WNA)",
+                  "value": "wna"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_fullname_id_card",
+              "typeField": "text",
+              "label": "Nama Sesuai Kartu Identitas",
+              "icon": "csr/assets/icon/ic_name_icon.png",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_fullname",
+              "typeField": "text",
+              "label": "Nama Lengkap Tanpa Singkatan",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_alias",
+              "typeField": "text",
+              "label": "Nama Lain (Alias)",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_birthdate",
+              "ageKey": "data_client_umur",
+              "typeField": "date",
+              "label": "Tanggal Lahir",
+              "icon": "csr/assets/icon/ic_bod_icon.png",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_client_umur",
+              "typeField": "text_disabled",
+              "label": "Usia",
+              "options": null
+            },
+            {
+              "key": "client_birthplace",
+              "typeField": "text_autocomplete",
+              "dataSource": "city",
+              "idKey": "client_birthplace_id",
+              "label": "Kota Lahir",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_birthplace_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "client_country",
+              "typeField": "text_disabled",
+              "idKey": "client_country_id",
+              "default": "Indonesia",
+              "label": "Negara Lahir",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_country_id",
+              "typeField": "hidden"
+            }
+          ]
+        },
+        {
+          "title": "Data Pribadi",
+          "description": "",
+          "key": "data_pribady",
+          "sections": null,
+          "fields": [
+            {
+              "key": "client_jenis_kelamin",
+              "typeField": "hidden",
+              "label": "Jenis Kelamin",
+              "options": null,
+              "validation": {
+                "required": true,
+                "default": "Perempuan"
+              }
+            },
+            {
+              "key": "data_client_kehamilan",
+              "typeField": "select",
+              "label": "Status Maternity",
+              "options": [
+                {
+                  "label": "Tidak Hamil dan Tidak Menyusui",
+                  "value": "Tidak Hamil dan Tidak Menyusui"
+                },
+                {
+                  "label": "Hamil",
+                  "value": "Hamil"
+                },
+                {
+                  "label": "Menyusui",
+                  "value": "Menyusui"
+                },
+                {
+                  "label": "Hamil dan Menyusui",
+                  "value": "Hamil dan Menyusui"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_maritalstatus",
+              "typeField": "select",
+              "label": "Status Perkawinan",
+              "options": [
+                {
+                  "label": "Belum Menikah",
+                  "value": "Belum Menikah"
+                },
+                {
+                  "label": "Menikah",
+                  "value": "Menikah"
+                },
+                {
+                  "label": "Janda",
+                  "value": "Janda"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_religion",
+              "typeField": "select",
+              "label": "Agama",
+              "options": [
+                {
+                  "label": "Islam",
+                  "value": "Islam"
+                },
+                {
+                  "label": "Protestan",
+                  "value": "Protestan"
+                },
+                {
+                  "label": "Katolik",
+                  "value": "Katolik"
+                },
+                {
+                  "label": "Kristen",
+                  "value": "Kristen"
+                },
+                {
+                  "label": "Hindu",
+                  "value": "Hindu"
+                },
+                {
+                  "label": "Budha",
+                  "value": "Budha"
+                },
+                {
+                  "label": "Kong Hu Chu",
+                  "value": "Kong Hu Chu"
+                }
+              ]
+            },
+            {
+              "key": "client_ibu_kandung",
+              "typeField": "text",
+              "label": "Nama Gadis Ibu Kandung",
+              "options": null,
+              "icon": "csr/assets/icon/ic_mother_icon.png",
+              "description": "Tanpa Singkatan",
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_education",
+              "typeField": "select",
+              "icon": "csr/assets/icon/ic_education_icon.png",
+              "label": "Pendidikan Terakhir",
+              "options": [
+                {
+                  "label": "Tidak Sekolah",
+                  "value": "Tidak Sekolah"
+                },
+                {
+                  "label": "SD & Sederajat",
+                  "value": "SD & Sederajat"
+                },
+                {
+                  "label": "SMP & Sederajat",
+                  "value": "SMP & Sederajat"
+                },
+                {
+                  "label": "SMA & Sederajat",
+                  "value": "SMA & Sederajat"
+                },
+                {
+                  "label": "Perguruan Tinggi & Sederajat",
+                  "value": "Perguruan Tinggi & Sederajat"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_permanent_resident",
+              "typeField": "checkbox",
+              "label": "Permanent Resident",
+              "icon": "csr/assets/icon/ic_location_icon.png",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_phone",
+              "typeField": "number",
+              "label": "No Telepon Mitra",
+              "icon": "csr/assets/icon/ic_phone_icon.png",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_email",
+              "typeField": "text-email",
+              "label": "Alamat Email",
+              "options": null,
+              "description": "Jika Ada",
+              "validation": {
+                "required": false
+              }
+            }
+          ]
+        },
+        {
+          "title": "Data Alamat Sesuai KTP",
+          "description": "",
+          "key": "data_alamat_sesuai_ktp",
+          "sections": null,
+          "fields": [
+            {
+              "key": "photo_client_house",
+              "typeField": "picture",
+              "label": "Foto Rumah Mitra",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "geotagging",
+              "typeField": "geotagging",
+              "label": "Lokasi Akurat",
+              "description": "Klik Disini Untuk Geotagging Lokasi",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_alamat",
+              "typeField": "text",
+              "label": "Nama Gedung/Jalan",
+              "icon": "csr/assets/icon/ic_id_icon.png",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_rt",
+              "typeField": "number",
+              "label": "RT",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_rw",
+              "typeField": "number",
+              "label": "RW",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_provinsi",
+              "typeField": "text_autocomplete",
+              "dataSource": "province",
+              "idKey": "client_provinsi_id",
+              "label": "Provinsi",
+              "childKey": "client_kota_kab",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_provinsi_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "client_kota_kab",
+              "typeField": "text_autocomplete",
+              "dataSource": "city",
+              "idKey": "client_kota_kab_id",
+              "label": "Kota/Kabupaten",
+              "childKey": "client_kecamatan",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_kota_kab_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "client_kecamatan",
+              "typeField": "text_autocomplete",
+              "dataSource": "district",
+              "idKey": "client_kecamatan_id",
+              "label": "Kecamatan",
+              "childKey": "client_desa",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_kecamatan_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "client_desa",
+              "typeField": "text_autocomplete",
+              "dataSource": "subDistrict",
+              "idKey": "client_desa_id",
+              "label": "Desa/Kelurahan",
+              "childKey": "client_kode_pos",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_desa_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "client_kode_pos",
+              "typeField": "text_disabled",
+              "label": "Kode Pos",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_domicile_equals_id_card",
+              "typeField": "checkbox",
+              "label": "Alamat Tempat Tinggal Sama Dengan Kartu Identitas",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_domicile_alamat",
+              "typeField": "text",
+              "label": "Nama Gedung/Jalan",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "client_domicile_rt",
+              "typeField": "number",
+              "label": "RT",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "client_domicile_rw",
+              "typeField": "number",
+              "label": "RW",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "client_domicile_provinsi",
+              "typeField": "text_autocomplete",
+              "dataSource": "province",
+              "idKey": "client_domicile_provinsi_id",
+              "label": "Provinsi",
+              "childKey": "client_domicile_kota_kab",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "client_domicile_provinsi_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "client_domicile_kota_kab",
+              "typeField": "text_autocomplete",
+              "dataSource": "city",
+              "idKey": "client_domicile_kota_kab_id",
+              "label": "Kota/Kabupaten",
+              "childKey": "client_domicile_kecamatan",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "client_domicile_kota_kab_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "client_domicile_kecamatan",
+              "typeField": "text_autocomplete",
+              "dataSource": "district",
+              "idKey": "client_domicile_kecamatan_id",
+              "label": "Kecamatan",
+              "childKey": "client_domicile_desa",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "client_domicile_kecamatan_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "client_domicile_desa",
+              "typeField": "text_autocomplete",
+              "dataSource": "subDistrict",
+              "idKey": "client_domicile_desa_id",
+              "childKey": "client_domicile_kode_pos",
+              "label": "Desa/Kelurahan",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "client_domicile_desa_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "client_domicile_kode_pos",
+              "typeField": "text_disabled",
+              "label": "Kode Pos",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "client_alamat_rekening_koran",
+              "typeField": "radio",
+              "label": "Alamat Rekening Koran Sama Dengan",
+              "options": [
+                {
+                  "label": "Alamat Kartu Identitas",
+                  "value": "id_card_address"
+                },
+                {
+                  "label": "Alamat Tempat Tinggal",
+                  "value": "resident_address"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            }
+          ]
+        },
+        {
+          "title": "Data Keuangan",
+          "description": "",
+          "key": "data_keuangan",
+          "sections": null,
+          "fields": [
+            {
+              "key": "client_sumber_dana",
+              "typeField": "select",
+              "label": "Sumber Dana",
+              "icon": "csr/assets/icon/ic_dana_icon.png",
+              "options": [
+                {
+                  "label": "Hasil Usaha/Jualan",
+                  "value": "hasil_usaha"
+                },
+                {
+                  "label": "Pemberian Orang Tua/Suami",
+                  "value": "pemberian_orang_tua_suami"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_total_income_keluarga",
+              "typeField": "select",
+              "label": "Total Pendapatan Keluarga Per Minggu",
+              "options": [
+                {
+                  "label": "Rp100.000 - Rp500.000",
+                  "value": 300000
+                },
+                {
+                  "label": "Rp501.000 - Rp999.000",
+                  "value": 750000
+                },
+                {
+                  "label": "Rp1.000.000 - Rp2.000.000",
+                  "value": 1500000
+                },
+                {
+                  "label": "> Rp2.000.000",
+                  "value": 3000000
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_total_income_keluarga_monthly",
+              "typeField": "hidden",
+              "label": "Total Pendapatan Keluarga Per Bulan",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_expense_per_week",
+              "typeField": "select",
+              "label": "Pengeluaran Keluarga Per Minggu",
+              "options": [
+                {
+                  "label": "Rp 50.000 - Rp 300.000",
+                  "value": 175000
+                },
+                {
+                  "label": "Rp 301.000 - Rp 500.000",
+                  "value": 400000
+                },
+                {
+                  "label": "Rp 501.000 - Rp 1.000.000",
+                  "value": 750000
+                },
+                {
+                  "label": "Rp 1.001.000 - Rp 1.500.000",
+                  "value": 1250000
+                },
+                {
+                  "label": "> Rp 1.500.000",
+                  "value": 1500000
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_expense_per_month",
+              "typeField": "hidden",
+              "label": "Pengeluaran Keluarga Per Bulan",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_other_loan",
+              "typeField": "table",
+              "label": "Pinjaman di Lembaga Lain",
+              "options": null,
+              "fields": [
+                {
+                  "key": "other_loan_instance_name",
+                  "typeField": "text",
+                  "label": "Nama Lembaga",
+                  "options": null
+                },
+                {
+                  "key": "other_loan_plafond",
+                  "typeField": "number",
+                  "label": "Plafond",
+                  "options": null
+                },
+                {
+                  "key": "other_loan_weekly_installment",
+                  "typeField": "number",
+                  "label": "Angsuran Per Minggu",
+                  "options": null
+                },
+                {
+                  "key": "other_loan_weekly_installment_monthly",
+                  "typeField": "hidden",
+                  "label": "Angsuran Per Bulan",
+                  "options": null
+                },
+                {
+                  "key": "other_loan_sisa",
+                  "typeField": "number",
+                  "label": "Sisa Frekuensi",
+                  "options": null
+                }
+              ],
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "client_other_loan_total",
+              "typeField": "hidden",
+              "label": "Berapa Banyak Lembaga Lain",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "client_other_loan_total_amount",
+              "typeField": "hidden",
+              "label": "Total Pinjaman Di Lembaga Lain",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            }
+          ]
+        }
+      ],
+      "fields": [
+        
+      ]
+    },
+    {
+      "title": "Data Pekerjaan",
+      "description": "Data Pekerjaan Mitra",
+      "key": "section_data_pekerjaan",
+      "sections": null,
+      "icon": "csr/assets/icon/ic_store.png",
+      "fields": [
+        {
+          "key": "photo_client",
+          "typeField": "picture",
+          "label": "Foto Mitra dengan Usaha",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_type",
+          "typeField": "hidden",
+          "label": "Jenis Pekerjaan",
+          "options": null,
+          "validation": {
+            "required": true,
+            "default": "wirausaha"
+          }
+        },
+        {
+          "key": "client_job",
+          "typeField": "select",
+          "label": "Bidang Usaha",
+          "icon": "csr/assets/icon/ic_work_icon.png",
+          "options": [
+            {
+              "label": "Pertanian, Kehutanan, Peternakan dan Perikanan",
+              "value": "A1629"
+            },
+            {
+              "label": "Pertambangan dan Penggalian",
+              "value": "B8999"
+            },
+            {
+              "label": "Industri Rumah Tangga",
+              "value": "C32909"
+            },
+            {
+              "label": "Daur Ulang",
+              "value": "E38302"
+            },
+            {
+              "label": "Konstruksi Bangunan dan Instalasi",
+              "value": "F42919"
+            },
+            {
+              "label": "Perdagangan Besar dan Eceran; Reparasi Mobil dan Motor",
+              "value": "G47899"
+            },
+            {
+              "label": "Jasa Angkut Darat, Laut, dan Udara",
+              "value": "H52101"
+            },
+            {
+              "label": "Jasa Penginapan dan Rumah Makan",
+              "value": "I55900"
+            },
+            {
+              "label": "Jasa Penyewaan",
+              "value": "N77309"
+            },
+            {
+              "label": "Jasa Pendidikan",
+              "value": "P85430"
+            },
+            {
+              "label": "Jasa Kesehatan Manusia dan Kegiatan Sosial",
+              "value": "Q86903"
+            },
+            {
+              "label": "Kesenian, Hiburan dan Rekreasi",
+              "value": "R90002"
+            },
+            {
+              "label": "Jasa Reparasi Barang dan Perorangan Lainnya",
+              "value": "S96999"
+            },
+            {
+              "label": "Jasa Perumahan yang Melayani Rumah Tangga",
+              "value": "T97000"
+            },
+            {
+              "label": "Ibu Rumah Tangga",
+              "value": "AMF001"
+            }
+          ],
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_name",
+          "typeField": "text",
+          "label": "Nama Usaha",
+          "options": null,
+          "validation": {
+            "required": true,
+            "default": "Usaha Ibu {client_name}"
+          }
+        },
+        {
+          "key": "client_job_address",
+          "typeField": "text",
+          "label": "Alamat usaha",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_rt",
+          "typeField": "text-number",
+          "label": "RT",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_rw",
+          "typeField": "text-number",
+          "label": "RW",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_provinsi",
+          "typeField": "text_autocomplete",
+          "dataSource": "province",
+          "idKey": "client_job_provinsi_id",
+          "label": "Provinsi",
+          "childKey": "client_job_kota_kab",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_provinsi_id",
+          "typeField": "hidden"
+        },
+        {
+          "key": "client_job_kota_kab",
+          "typeField": "text_autocomplete",
+          "dataSource": "city",
+          "idKey": "client_job_kota_kab_id",
+          "label": "Kota/Kabupaten",
+          "childKey": "client_job_kecamatan",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_kota_kab_id",
+          "typeField": "hidden"
+        },
+        {
+          "key": "client_job_kecamatan",
+          "typeField": "text_autocomplete",
+          "dataSource": "district",
+          "idKey": "client_job_kecamatan_id",
+          "label": "Kecamatan",
+          "childKey": "client_job_desa",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_kecamatan_id",
+          "typeField": "hidden"
+        },
+        {
+          "key": "client_job_desa",
+          "typeField": "text_autocomplete",
+          "dataSource": "subDistrict",
+          "idKey": "client_job_desa_id",
+          "label": "Desa",
+          "childKey": "client_job_kode_pos",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_desa_id",
+          "typeField": "hidden"
+        },
+        {
+          "key": "client_job_kode_pos",
+          "typeField": "text_disabled",
+          "label": "Kode Pos",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_duration",
+          "typeField": "number",
+          "label": "Lama Usaha (Tahun)",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_geotagging",
+          "typeField": "geotagging",
+          "label": "Lokasi Akurat",
+          "description": "Klik Disini Untuk Geotagging Lokasi",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "client_job_phone_no",
+          "typeField": "number",
+          "label": "Nomor Telepon Kantor",
+          "icon": "csr/assets/icon/ic_phone_icon.png",
+          "options": null,
+          "validation": {
+            "required": false
+          }
+        },
+        {
+          "key": "data_pendapatan_istri",
+          "typeField": "select",
+          "label": "Pendapatan Per Minggu",
+          "icon": "csr/assets/icon/ic_dana_icon.png",
+          "options": [
+            {
+              "label": "< Rp50.000",
+              "value": 0
+            },
+            {
+              "label": "Rp100.000 - Rp500.000",
+              "value": 300000
+            },
+            {
+              "label": "Rp501.000 - Rp999.000",
+              "value": 750000
+            },
+            {
+              "label": "Rp1.000.000 - Rp2.000.000",
+              "value": 1500000
+            },
+            {
+              "label": "> Rp2.000.000",
+              "value": 3000000
+            }
+          ],
+          "validation": {
+            "required": false
+          }
+        },
+        {
+          "key": "data_pendapatan_istri_monthly",
+          "typeField": "hidden",
+          "label": "Pendapatan Per Bulan",
+          "options": null,
+          "validation": {
+            "required": false
+          }
+        },
+        {
+          "key": "client_job_expense",
+          "typeField": "select",
+          "label": "Pengeluaran Per Minggu",
+          "options": [
+            {
+              "label": "< Rp 50.000",
+              "value": 0
+            },
+            {
+              "label": "Rp 50.000 - Rp 300.000",
+              "value": 175000
+            },
+            {
+              "label": "Rp 301.000 - Rp 500.000",
+              "value": 400000
+            },
+            {
+              "label": "Rp 501.000 - Rp 1.000.000",
+              "value": 750000
+            },
+            {
+              "label": "Rp 1.001.000 - Rp 1.500.000",
+              "value": 1250000
+            },
+            {
+              "label": "> Rp 1.500.000",
+              "value": 1500000
+            }
+          ],
+          "validation": {
+            "required": false
+          }
+        },
+        {
+          "key": "client_job_expense_monthly",
+          "typeField": "hidden",
+          "label": "Pengeluaran Per Bulan",
+          "options": null,
+          "validation": {
+            "required": false
+          }
+        },
+        {
+          "key": "data_pendapatan_lain",
+          "typeField": "select",
+          "label": "Pendapatan Lainnya",
+          "options": [
+            {
+              "label": "Rp0",
+              "value": 0
+            },
+            {
+              "label": "Rp100.000 - Rp500.000",
+              "value": 300000
+            },
+            {
+              "label": "Rp501.000 - Rp999.000",
+              "value": 750000
+            },
+            {
+              "label": "Rp1.000.000 - Rp2.000.000",
+              "value": 1500000
+            },
+            {
+              "label": "> Rp2.000.000",
+              "value": 3000000
+            }
+          ],
+          "validation": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "Data Penanggung Jawab",
+      "description": "Penanggung Jawab Pinjaman",
+      "key": "section_data_penanggung_jawab",
+      "icon": "csr/assets/icon/ic_shake_hand.png",
+      "sections": [
+        {
+          "title": "Data Penanggung Jawab",
+          "key": "data_penanggung_jawab",
+          "fields": [
+            {
+              "key": "photo_penanggung_jawab",
+              "typeField": "picture",
+              "label": "Foto Penanggung Jawab",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "photo_form_pernyataan_penanggung_jawab",
+              "typeField": "picture",
+              "label": "Pernyataan Penanggung Jawab",
+              "options": null
+            },
+            {
+              "key": "photo_ktp_penanggung_jawab",
+              "typeField": "picture",
+              "label": "Foto Kartu Identitas",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_identity_type_penanggung_jawab",
+              "typeField": "select",
+              "label": "Jenis Kartu Identitas",
+              "icon": "csr/assets/icon/ic_id_icon.png",
+              "options": [
+                {
+                  "label": "KTP",
+                  "value": "ktp"
+                },
+                {
+                  "label": "KITAS",
+                  "value": "kitas"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_ktp_penanggung_jawab",
+              "typeField": "text-number",
+              "label": "No. KTP Penanggung Jawab",
+              "options": null,
+              "validation": {
+                "required": true,
+                "exactLength": 16
+              }
+            },
+            {
+              "key": "client_id_card_valid_through_penanggung_jawab",
+              "typeField": "date",
+              "label": "Tanggal Berakhir Kartu Identitas",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_nationality_penanggung_jawab",
+              "typeField": "select",
+              "label": "Kewarganegaraan",
+              "options": [
+                {
+                  "label": "Indonesia (WNI)",
+                  "value": "wni"
+                },
+                {
+                  "label": "Asing (WNA)",
+                  "value": "wna"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_fullname_id_card_penanggung_jawab",
+              "typeField": "text",
+              "label": "Nama Sesuai Kartu Identitas",
+              "icon": "csr/assets/icon/ic_name_icon.png",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_suami",
+              "typeField": "text",
+              "label": "Nama Lengkap Tanpa Singkatan",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_alias_penanggung_jawab",
+              "typeField": "text",
+              "label": "Nama Lain (Alias)",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "client_phone_penanggung_jawab",
+              "typeField": "number",
+              "label": "No. Telepon Penanggung Jawab",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_suami_tgllahir",
+              "ageKey": "data_suami_umur",
+              "typeField": "date",
+              "label": "Tanggal Lahir",
+              "icon": "csr/assets/icon/ic_bod_icon.png",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_suami_umur",
+              "typeField": "text_disabled",
+              "label": "Usia",
+              "options": null
+            },
+            {
+              "key": "data_suami_tempatlahir",
+              "typeField": "text_autocomplete",
+              "dataSource": "city",
+              "label": "Kota Lahir",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_suami_pendidikan",
+              "typeField": "select",
+              "label": "Pendidikan Penanggung Jawab",
+              "options": [
+                {
+                  "label": "Tidak Sekolah",
+                  "value": "Tidak Sekolah"
+                },
+                {
+                  "label": "SD & Sederajat",
+                  "value": "SD & Sederajat"
+                },
+                {
+                  "label": "SMP & Sederajat",
+                  "value": "SMP & Sederajat"
+                },
+                {
+                  "label": "SMA & Sederajat",
+                  "value": "SMA & Sederajat"
+                },
+                {
+                  "label": "Perguruan Tinggi & Sederajat",
+                  "value": "Perguruan Tinggi & Sederajat"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_suami_marital_status",
+              "typeField": "select",
+              "label": "Status Perkawinan",
+              "options": [
+                {
+                  "label": "Belum Menikah",
+                  "value": "Belum Menikah"
+                },
+                {
+                  "label": "Menikah",
+                  "value": "Menikah"
+                },
+                {
+                  "label": "Janda",
+                  "value": "Janda"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_hubungan",
+              "typeField": "select",
+              "label": "Hubungan dengan Peminjam",
+              "options": [
+                {
+                  "label": "Suami",
+                  "value": "Suami"
+                },
+                {
+                  "label": "Bapak",
+                  "value": "Bapak"
+                },
+                {
+                  "label": "Kakak/Adik",
+                  "value": "Kakak/Adik"
+                },
+                {
+                  "label": "Anak",
+                  "value": "Anak"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            }
+          ]
+        },
+        {
+          "title": "Data Alamat Penanggung Jawab",
+          "key": "data_alamat_penanggung_jawab",
+          "fields": [
+            {
+              "key": "geotagging_penanggung_jawab",
+              "typeField": "geotagging",
+              "label": "Lokasi Akurat",
+              "description": "Klik Disini Untuk Geotagging Lokasi",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_suami_alamat",
+              "typeField": "text",
+              "label": "Nama Gedung/Jalan",
+              "icon": "csr/assets/icon/ic_id_icon.png",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "rt_penanggung_jawab",
+              "typeField": "number",
+              "label": "RT",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "rw_penanggung_jawab",
+              "typeField": "number",
+              "label": "RW",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "provinsi_penanggung_jawab",
+              "typeField": "text_autocomplete",
+              "dataSource": "province",
+              "idKey": "provinsi_penanggung_jawab_id",
+              "label": "Provinsi",
+              "childKey": "kota_kab_penanggung_jawab",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "provinsi_penanggung_jawab_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "kota_kab_penanggung_jawab",
+              "typeField": "text_autocomplete",
+              "dataSource": "city",
+              "idKey": "kota_kab_penanggung_jawab_id",
+              "label": "Kota/Kabupaten",
+              "childKey": "kecamatan_penanggung_jawab",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "kota_kab_penanggung_jawab_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "kecamatan_penanggung_jawab",
+              "typeField": "text_autocomplete",
+              "dataSource": "district",
+              "idKey": "kecamatan_penanggung_jawab_id",
+              "label": "Kecamatan",
+              "childKey": "desa_penanggung_jawab",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "kecamatan_penanggung_jawab_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "desa_penanggung_jawab",
+              "typeField": "text_autocomplete",
+              "dataSource": "subDistrict",
+              "idKey": "desa_penanggung_jawab_id",
+              "label": "Desa/Kelurahan",
+              "childKey": "kode_pos_penanggung_jawab",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "desa_penanggung_jawab_id",
+              "typeField": "hidden"
+            },
+            {
+              "key": "kode_pos_penanggung_jawab",
+              "typeField": "text_disabled",
+              "label": "Kode Pos",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_suami_alamat_flag",
+              "typeField": "radio-vertical",
+              "label": "Alamat Penanggung Jawab Sama Dengan",
+              "options": [
+                {
+                  "label": "Alamat Kartu Identitas",
+                  "value": "sama_dengan_id_card"
+                },
+                {
+                  "label": "Alamat Peminjam",
+                  "value": "sama_dengan_peminjam"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            }
+          ]
+        },
+        {
+          "title": "Data Pekerjaan Penanggung Jawab",
+          "key": "data_pekerjaan_penanggung_jawab",
+          "fields": [
+            {
+              "key": "job_type_penanggung_jawab",
+              "typeField": "hidden",
+              "label": "Jenis Pekerjaan",
+              "options": null,
+              "validation": {
+                "required": true,
+                "default": "wirausaha"
+              }
+            },
+            {
+              "key": "data_suami_pekerjaan",
+              "typeField": "select",
+              "label": "Bidang Usaha",
+              "icon": "csr/assets/icon/ic_work_icon.png",
+              "options": [
+                {
+                  "label": "Pertanian, Kehutanan, Peternakan dan Perikanan",
+                  "value": "A1629"
+                },
+                {
+                  "label": "Pertambangan dan Penggalian",
+                  "value": "B8999"
+                },
+                {
+                  "label": "Industri Rumah Tangga",
+                  "value": "C32909"
+                },
+                {
+                  "label": "Daur Ulang",
+                  "value": "E38302"
+                },
+                {
+                  "label": "Konstruksi Bangunan dan Instalasi",
+                  "value": "F42919"
+                },
+                {
+                  "label": "Perdagangan Besar dan Eceran; Reparasi Mobil dan Motor",
+                  "value": "G47899"
+                },
+                {
+                  "label": "Jasa Angkut Darat, Laut, dan Udara",
+                  "value": "H52101"
+                },
+                {
+                  "label": "Jasa Penginapan dan Rumah Makan",
+                  "value": "I55900"
+                },
+                {
+                  "label": "Jasa Penyewaan",
+                  "value": "N77309"
+                },
+                {
+                  "label": "Jasa Pendidikan",
+                  "value": "P85430"
+                },
+                {
+                  "label": "Jasa Kesehatan Manusia dan Kegiatan Sosial",
+                  "value": "Q86903"
+                },
+                {
+                  "label": "Kesenian, Hiburan dan Rekreasi",
+                  "value": "R90002"
+                },
+                {
+                  "label": "Jasa Reparasi Barang dan Perorangan Lainnya",
+                  "value": "S96999"
+                },
+                {
+                  "label": "Jasa Perumahan yang Melayani Rumah Tangga",
+                  "value": "T97000"
+                },
+                {
+                  "label": "Ibu Rumah Tangga",
+                  "value": "AMF001"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "job_address_penanggung_jawab",
+              "typeField": "text",
+              "label": "Alamat usaha",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "job_phone_no_penanggung_jawab",
+              "typeField": "number",
+              "label": "Nomor Telepon Kantor",
+              "icon": "csr/assets/icon/ic_phone_icon.png",
+              "options": null,
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "data_pendapatan_suami",
+              "typeField": "number",
+              "label": "Pendapatan Per Minggu",
+              "icon": "csr/assets/icon/ic_dana_icon.png",
+              "options": [
+                {
+                  "label": "< Rp50.000",
+                  "value": 0
+                },
+                {
+                  "label": "Rp100.000 - Rp500.000",
+                  "value": 300000
+                },
+                {
+                  "label": "Rp501.000 - Rp999.000",
+                  "value": 750000
+                },
+                {
+                  "label": "Rp1.000.000 - Rp2.000.000",
+                  "value": 1500000
+                },
+                {
+                  "label": "> Rp2.000.000",
+                  "value": 3000000
+                }
+              ],
+              "validation": {
+                "required": false
+              }
+            },
+            {
+              "key": "sumber_dana_penanggung_jawab",
+              "typeField": "select",
+              "label": "Sumber Dana",
+              "options": [
+                {
+                  "label": "Hasil Usaha/Jualan",
+                  "value": "hasil_usaha"
+                },
+                {
+                  "label": "Pemberian Orang Tua/Suami",
+                  "value": "pemberian_orang_tua_suami"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "tujuan_penggunaan_dana_penanggung_jawab",
+              "typeField": "text",
+              "label": "Tujuan Penggunaan Dana",
+              "options": null
+            },
+            {
+              "key": "tujuan_pembukaan_rekening_penanggung_jawab",
+              "typeField": "text",
+              "label": "Tujuan Pembukaan Rekening",
+              "options": null
+            }
+          ]
+        }
+      ],
+      "fields": [
+        
+      ]
+    },
+    {
+      "title": "Data Tanggungan",
+      "description": "Silahkan Isi Bila Ada",
+      "type": "table",
+      "key": "tanggungan",
+      "icon": "csr/assets/icon/ic_baby.png",
+      "fields": [
+        {
+          "key": "tanggungan",
+          "description": "Data Tanggungan",
+          "label": "Tanggungan",
+          "typeField": "table",
+          "fields": [
+            {
+              "key": "usia",
+              "typeField": "number",
+              "label": "Usia",
+              "options": null,
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "jenis_kelamin",
+              "typeField": "radio",
+              "label": "Jenis Kelamin",
+              "options": [
+                {
+                  "label": "Laki-laki",
+                  "value": "Laki-laki"
+                },
+                {
+                  "label": "Perempuan",
+                  "value": "Perempuan"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "pendidikan",
+              "typeField": "select",
+              "label": "Pendidikan",
+              "options": [
+                {
+                  "label": "Tidak Sekolah",
+                  "value": "Tidak Sekolah"
+                },
+                {
+                  "label": "SD & Sederajat",
+                  "value": "SD & Sederajat"
+                },
+                {
+                  "label": "SMP & Sederajat",
+                  "value": "SMP & Sederajat"
+                },
+                {
+                  "label": "SMA & Sederajat",
+                  "value": "SMA & Sederajat"
+                },
+                {
+                  "label": "Perguruan Tinggi & Sederajat",
+                  "value": "Perguruan Tinggi & Sederajat"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "maritalstatus",
+              "typeField": "select",
+              "label": "Status Perkawinan",
+              "options": [
+                {
+                  "label": "Belum Menikah",
+                  "value": "Tidak"
+                },
+                {
+                  "label": "Sudah Menikah",
+                  "value": "Iya"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "kehamilan",
+              "typeField": "select",
+              "label": "Status Maternity",
+              "options": [
+                {
+                  "label": "Tidak Hamil dan Tidak Menyusui",
+                  "value": "Tidak Hamil dan Tidak Menyusui"
+                },
+                {
+                  "label": "Hamil",
+                  "value": "Hamil"
+                },
+                {
+                  "label": "Menyusui",
+                  "value": "Menyusui"
+                },
+                {
+                  "label": "Hamil dan Menyusui",
+                  "value": "Hamil dan Menyusui"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Data Pengajuan",
+      "key": "section_data_pengajuan",
+      "description": "Jumlah Pengajuan Pinjaman",
+      "icon": "csr/assets/icon/ic_income.png",
+      "fields": [
+        {
+          "key": "group",
+          "typeField": "text_autocomplete",
+          "dataSource": "group",
+          "idKey": "groupId",
+          "label": "Majelis",
+          "icon": "csr/assets/icon/ic_group_icon.png",
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "groupId",
+          "typeField": "hidden"
+        },
+        {
+          "key": "data_akad",
+          "typeField": "hidden",
+          "label": "Akad",
+          "options": null,
+          "validation": {
+            "required": true,
+            "default": "MBA"
+          }
+        },
+        {
+          "key": "data_ke",
+          "typeField": "text_disabled",
+          "default": "0",
+          "label": "Pembiayaan ke",
+          "icon": "csr/assets/icon/ic_dana_icon.png",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "data_pengajuan",
+          "typeField": "select",
+          "label": "Jumlah Pengajuan",
+          "options": [
+            {
+              "label": "2,500,000",
+              "value": "2500000"
+            },
+            {
+              "label": "3,000,000",
+              "value": "3000000"
+            },
+            {
+              "label": "3,500,000",
+              "value": "3500000"
+            },
+            {
+              "label": "4,000,000",
+              "value": "4000000"
+            },
+            {
+              "label": "4,500,000",
+              "value": "4500000"
+            },
+            {
+              "label": "5,000,000",
+              "value": "5000000"
+            },
+            {
+              "label": "5,500,000",
+              "value": "5500000"
+            },
+            {
+              "label": "6,000,000",
+              "value": "6000000"
+            },
+            {
+              "label": "6,500,000",
+              "value": "6500000"
+            },
+            {
+              "label": "7,000,000",
+              "value": "7000000"
+            },
+            {
+              "label": "7,500,000",
+              "value": "7500000"
+            },
+            {
+              "label": "8,000,000",
+              "value": "8000000"
+            },
+            {
+              "label": "8,500,000",
+              "value": "8500000"
+            },
+            {
+              "label": "9,000,000",
+              "value": "9000000"
+            },
+            {
+              "label": "9,500,000",
+              "value": "9500000"
+            },
+            {
+              "label": "10,000,000",
+              "value": "10000000"
+            },
+            {
+              "label": "10,500,000",
+              "value": "10500000"
+            },
+            {
+              "label": "11,000,000",
+              "value": "11000000"
+            },
+            {
+              "label": "11,500,000",
+              "value": "11500000"
+            },
+            {
+              "label": "12,000,000",
+              "value": "12000000"
+            },
+            {
+              "label": "12,500,000",
+              "value": "12500000"
+            },
+            {
+              "label": "13,000,000",
+              "value": "13000000"
+            },
+            {
+              "label": "13,500,000",
+              "value": "13500000"
+            },
+            {
+              "label": "14,000,000",
+              "value": "14000000"
+            },
+            {
+              "label": "14,500,000",
+              "value": "14500000"
+            },
+            {
+              "label": "15,000,000",
+              "value": "15000000"
+            },
+            {
+              "label": "15,500,000",
+              "value": "15500000"
+            },
+            {
+              "label": "16,000,000",
+              "value": "16000000"
+            },
+            {
+              "label": "16,500,000",
+              "value": "16500000"
+            },
+            {
+              "label": "17,000,000",
+              "value": "17000000"
+            },
+            {
+              "label": "17,500,000",
+              "value": "17500000"
+            },
+            {
+              "label": "18,000,000",
+              "value": "18000000"
+            },
+            {
+              "label": "18,500,000",
+              "value": "18500000"
+            },
+            {
+              "label": "19,000,000",
+              "value": "19000000"
+            },
+            {
+              "label": "19,500,000",
+              "value": "19500000"
+            },
+            {
+              "label": "20,000,000",
+              "value": "20000000"
+            },
+            {
+              "label": "20,500,000",
+              "value": "20500000"
+            },
+            {
+              "label": "21,000,000",
+              "value": "21000000"
+            }
+          ],
+          "validation": {
+            "required": true,
+            "conditions": [
+              {
+                "value": "4500000",
+                "operations": {
+                  "operand": "{data_ke}",
+                  "operator": "=",
+                  "comparator": "0"
+                }
+              },
+              {
+                "value": "4500000",
+                "operations": {
+                  "operand": "{data_ke}",
+                  "operator": "=",
+                  "comparator": "1"
+                }
+              },
+              {
+                "value": "5000000",
+                "operations": {
+                  "operand": "{data_ke}",
+                  "operator": "=",
+                  "comparator": "2"
+                }
+              },
+              {
+                "value": "7000000",
+                "operations": {
+                  "operand": "{data_ke}",
+                  "operator": "=",
+                  "comparator": "3"
+                }
+              },
+              {
+                "value": "11000000",
+                "operations": {
+                  "operand": "{data_ke}",
+                  "operator": "=",
+                  "comparator": "4"
+                }
+              },
+              {
+                "value": "15000000",
+                "operations": {
+                  "operand": "{data_ke}",
+                  "operator": "=",
+                  "comparator": "5"
+                }
+              },
+              {
+                "value": "18000000",
+                "operations": {
+                  "operand": "{data_ke}",
+                  "operator": "=",
+                  "comparator": "6"
+                }
+              },
+              {
+                "value": "21000000",
+                "operations": {
+                  "operand": "{data_ke}",
+                  "operator": "=",
+                  "comparator": "7"
+                }
+              }
+            ]
+          }
+        },
+        {
+          "key": "data_jangkawaktu",
+          "typeField": "select",
+          "label": "Jangka waktu (minggu)",
+          "icon": "csr/assets/icon/ic_calendar_icon.png",
+          "options": [
+            {
+              "label": "50",
+              "value": "50"
+            },
+            {
+              "label": "25",
+              "value": "25"
+            },
+            {
+              "label": "10",
+              "value": "10"
+            },
+            {
+              "label": "4",
+              "value": "4"
+            }
+          ],
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "data_rencana_angsuran",
+          "typeField": "formatted-number",
+          "label": "Kemampuan Cicilan / minggu",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "data_sector",
+          "typeField": "select_parent",
+          "childKey": "data_tujuan",
+          "label": "Sektor Pembiayaan",
+          "options": [
+            {
+              "label": "Industri Rumah Tangga",
+              "value": "3"
+            },
+            {
+              "label": "Jasa",
+              "value": "4"
+            },
+            {
+              "label": "Perdagangan",
+              "value": "1"
+            },
+            {
+              "label": "Pertanian",
+              "value": "2"
+            },
+            {
+              "label": "Peternakan",
+              "value": "10"
+            },
+            {
+              "label": "Non-Produktif",
+              "value": "11"
+            }
+          ],
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "data_tgl",
+          "typeField": "hidden",
+          "label": "Tanggal Survey",
+          "options": null,
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "key": "data_tujuan",
+          "typeField": "select_child",
+          "parentKey": "data_sector",
+          "label": "Tujuan Pembiayaan",
+          "options": [
+            {
+              "parentValue": "3",
+              "options": [
+                {
+                  "label": "Kerajinan Tangan",
+                  "value": "Kerajinan Tangan"
+                },
+                {
+                  "label": "Makanan Kecil",
+                  "value": "Makanan Kecil"
+                },
+                {
+                  "label": "Konveksi Rumahan",
+                  "value": "Konveksi Rumahan"
+                },
+                {
+                  "label": "Produksi Perkakas Rumah Tangga",
+                  "value": "Produksi Perkakas Rumah Tangga"
+                },
+                {
+                  "label": "Produksi Keset",
+                  "value": "Produksi Keset"
+                },
+                {
+                  "label": "Pembuatan Kue",
+                  "value": "Pembuatan Kue"
+                }
+              ]
+            },
+            {
+              "parentValue": "4",
+              "options": [
+                {
+                  "label": "Bengkel",
+                  "value": "Bengkel"
+                },
+                {
+                  "label": "Salon",
+                  "value": "Salon"
+                },
+                {
+                  "label": "Service Elektronik",
+                  "value": "Service Elektronik"
+                },
+                {
+                  "label": "Pemasangan Listrik",
+                  "value": "Pemasangan Listrik"
+                },
+                {
+                  "label": "Pengolahan Kayu",
+                  "value": "Pengolahan Kayu"
+                },
+                {
+                  "label": "Pangkas Rambut",
+                  "value": "Pangkas Rambut"
+                },
+                {
+                  "label": "Rental Elektronik",
+                  "value": "Rental Elektronik"
+                }
+              ]
+            },
+            {
+              "parentValue": "1",
+              "options": [
+                {
+                  "label": "Dagang Buah",
+                  "value": "Dagang Buah"
+                },
+                {
+                  "label": "Dagang Kosmetik",
+                  "value": "Dagang Kosmetik"
+                },
+                {
+                  "label": "Dagang Pakaian",
+                  "value": "Dagang Pakaian"
+                },
+                {
+                  "label": "Dagang Sayuran",
+                  "value": "Dagang Sayuran"
+                },
+                {
+                  "label": "Dagang Kue",
+                  "value": "Dagang Kue"
+                },
+                {
+                  "label": "Dagang Warung Sembako",
+                  "value": "Dagang Warung Sembako"
+                },
+                {
+                  "label": "Dagang Perabot",
+                  "value": "Dagang Perabot"
+                },
+                {
+                  "label": "Dagang Warung Makan",
+                  "value": "Dagang Warung Makan"
+                },
+                {
+                  "label": "Dagang Warung Kecil",
+                  "value": "Dagang Warung Kecil"
+                },
+                {
+                  "label": "Dagang Sayuran",
+                  "value": "Dagang Sayuran"
+                },
+                {
+                  "label": "Dagang Mainan",
+                  "value": "Dagang Mainan"
+                }
+              ]
+            },
+            {
+              "parentValue": "2",
+              "options": [
+                {
+                  "label": "Beli Pupuk",
+                  "value": "Beli Pupuk"
+                },
+                {
+                  "label": "Tani Cabe",
+                  "value": "Tani Cabe"
+                },
+                {
+                  "label": "Tani Sosin",
+                  "value": "Tani Sosin"
+                },
+                {
+                  "label": "Tani Kopi",
+                  "value": "Tani Kopi"
+                },
+                {
+                  "label": "Tani Padi",
+                  "value": "Tani Padi"
+                },
+                {
+                  "label": "Tani Sawi",
+                  "value": "Tani Sawi"
+                },
+                {
+                  "label": "Tani Sayur",
+                  "value": "Tani Sayur"
+                }
+              ]
+            },
+            {
+              "parentValue": "10",
+              "options": [
+                {
+                  "label": "Ternak Unggas",
+                  "value": "Ternak Unggas"
+                },
+                {
+                  "label": "Sapi / Kambing / Lembu",
+                  "value": "Sapi / Kambing / Lembu"
+                },
+                {
+                  "label": "Ternak Ikan",
+                  "value": "Ternak Ikan"
+                }
+              ]
+            },
+            {
+              "parentValue": "11",
+              "options": [
+                {
+                  "label": "Renovasi Rumah",
+                  "value": "Renovasi Rumah"
+                },
+                {
+                  "label": "Biaya Sekolah",
+                  "value": "Biaya Sekolah"
+                },
+                {
+                  "label": "Biaya Berobat",
+                  "value": "Biaya Berobat"
+                },
+                {
+                  "label": "Air dan Sanitasi",
+                  "value": "Air dan Sanitasi"
+                },
+                {
+                  "label": "Menyelesaikan hutang rentenir",
+                  "value": "Menyelesaikan hutang rentenir"
+                },
+                {
+                  "label": "Lain-lain",
+                  "value": "Lain-lain"
+                }
+              ]
+            }
+          ],
+          "validation": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "Poverty Index",
+      "key": "section_poverty_index",
+      "description": "Index Kemiskinan Mitra",
+      "icon": "csr/assets/icon/ic_line_chart.png",
+      "sections": [
+        {
+          "title": "Index Keluar Dari Kemiskinan",
+          "key": "index_keluar_dari_kemiskinan",
+          "description": "Silakan Jawab Pertanyaan Di Bawah Ini Sesuai Dengan Hasil Survey",
+          "fields": [
+            {
+              "key": "data_popi_motor",
+              "typeField": "radio",
+              "label": "Memiliki sepeda/perahu motor?",
+              "options": [
+                {
+                  "label": "Ya",
+                  "value": "B"
+                },
+                {
+                  "label": "Tidak",
+                  "value": "A"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_popi_jenislantai",
+              "typeField": "radio-vertical",
+              "label": "Jenis lantai rumah terluas?",
+              "options": [
+                {
+                  "label": "Bukan tanah atau bambu",
+                  "value": "B"
+                },
+                {
+                  "label": "Tanah atau bambu",
+                  "value": "A"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_popi_bahanbakar",
+              "typeField": "radio-vertical",
+              "label": "Jenis bahan bakar utama rumah tangga?",
+              "options": [
+                {
+                  "label": "Gas elpiji, minyak tanah, listrik atau lainnya",
+                  "value": "B"
+                },
+                {
+                  "label": "Bambu kayu bakar, arang, briket",
+                  "value": "A"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_popi_kulkas",
+              "typeField": "radio",
+              "label": "Apakah rumah tangga memiliki kulkas/lemari es?",
+              "options": [
+                {
+                  "label": "Ya",
+                  "value": "B"
+                },
+                {
+                  "label": "Tidak",
+                  "value": "A"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            }
+          ]
+        },
+        {
+          "title": "Indeks rumah cashphor",
+          "key": "index_rumah_cashphor",
+          "fields": [
+            {
+              "key": "data_rmc_jenisdinding",
+              "typeField": "select",
+              "label": "Jenis dinding",
+              "options": [
+                {
+                  "label": "Tembok",
+                  "value": "A"
+                },
+                {
+                  "label": "Setengah tembok/belum plaster",
+                  "value": "B"
+                },
+                {
+                  "label": "Kayu/bambu/bilik",
+                  "value": "C"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            },
+            {
+              "key": "data_rmc_jenislantai",
+              "typeField": "select",
+              "label": "Jenis lantai",
+              "options": [
+                {
+                  "label": "Keramik",
+                  "value": "A"
+                },
+                {
+                  "label": "Keramik 25%/tegel/semen",
+                  "value": "B"
+                },
+                {
+                  "label": "Tanah/panggung",
+                  "value": "C"
+                }
+              ],
+              "validation": {
+                "required": true
+              }
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "Biometric",
+      "key": "section_biometric",
+      "description": "Pendaftaran Sidik Jari Mitra",
+      "icon": "csr/assets/icon/ic_fingerprint.png",
+      "sections": null,
+      "fields": [
+        {
+          "key": "fingerprints",
+          "label": "Daftar Sidik Jari Mitra",
+          "description": "Mohon Letakkan Jari Mitra Pada Scanner",
+          "typeField": "biometric",
+          "validation": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "Biometric Penanggung Jawab",
+      "key": "section_biometric_penanggung_jawab",
+      "description": "Pendaftaran Sidik Jari Penanggung Jawab",
+      "icon": "csr/assets/icon/ic_fingerprint.png",
+      "sections": null,
+      "fields": [
+        {
+          "key": "fingerprints_pic",
+          "label": "Daftar Sidik Jari Mitra",
+          "description": "Mohon Letakkan Jari Mitra Pada Scanner",
+          "typeField": "biometric",
+          "validation": {
+            "required": true
+          }
+        }
+      ]
+    }
+  ]
+}
