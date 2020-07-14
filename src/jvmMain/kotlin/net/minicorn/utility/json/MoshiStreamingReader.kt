@@ -51,16 +51,6 @@ class MoshiStreamingReader {
         reader.endObject()
     }
 
-    private fun printSections(sections: MutableList<Section>) {
-        sections.forEach { section ->
-            IndentedPrint.addIndent()
-            IndentedPrint.printIndent("${section.title} : ${section.key}")
-            IndentedPrint.printIndent(section.fields)
-            section.sections?.let { printSections(it) }
-            IndentedPrint.subIndent()
-        }
-    }
-
     private fun readSections(reader: JsonReader): MutableList<Section> {
         val sections = mutableListOf<Section>()
         reader.beginArray()
@@ -80,11 +70,11 @@ class MoshiStreamingReader {
                 "title" -> section.title = reader.nextString()
                 "key" -> section.key = reader.nextString()
                 "fields" -> {
-                    if (reader.peek() != JsonReader.Token.NULL) readFields(reader)
+                    if (reader.peek() != JsonReader.Token.NULL) section.fields = readFields(reader)
                     else reader.nextNull<Unit>()
                 }
                 "sections" -> {
-                    if (reader.peek() != JsonReader.Token.NULL) readSections(reader)
+                    if (reader.peek() != JsonReader.Token.NULL) section.sections = readSections(reader)
                     else reader.nextNull<Unit>()
                 }
                 else -> reader.skipValue()
@@ -94,47 +84,69 @@ class MoshiStreamingReader {
         return section
     }
 
-    private fun readFields(reader: JsonReader) {
-        println(reader.readJsonValue().toString())
+    private fun readFields(reader: JsonReader): MutableList<Field> {
+        val fields = mutableListOf<Field>()
+        reader.beginArray()
+        while (reader.hasNext()) {
+            val field = readField(reader)
+            fields.add(field)
+        }
+        reader.endArray()
+        return fields
+
     }
 
-//    @Throws(IOException::class)
-//    fun readMessagesArray(reader: JsonReader): List<Message?>? {
-//        val messages: MutableList<Message?> = ArrayList<Message?>()
-//        reader.beginArray()
-//        while (reader.hasNext()) {
-//            messages.add(readMessage(reader))
-//        }
-//        reader.endArray()
-//        return messages
-//    }
-//
-//    @Throws(IOException::class)
-//    fun readMessage(reader: JsonReader): Message? {
-//        var id: Long = -1
-//        var text: String? = null
-//        var user: User? = null
-//        var geo: List<Double?>? = null
-//        reader.beginObject()
-//        while (reader.hasNext()) {
-//            val name = reader.nextName()
-//            if (name == "id") {
-//                id = reader.nextLong()
-//            } else if (name == "text") {
-//                text = reader.nextString()
-//            } else if (name == "geo" && reader.peek() != JsonReader.Token.NULL) {
-//                geo = readDoublesArray(reader)
-//            } else if (name == "user") {
-//                user = readUser(reader)
-//            } else {
-//                reader.skipValue()
-//            }
-//        }
-//        reader.endObject()
-////    return Message(id, text, user, geo)
-//        return null
-//    }
+    private fun readField(reader: JsonReader): Field {
+        val field = Field()
+        reader.beginObject()
+        while (reader.hasNext()) {
+            when (reader.nextName()) {
+                "key" -> field.key = reader.nextString()
+                "typeField" -> field.typeField = reader.nextString()
+                "validation" -> field.required = readValidation(reader)
+                else -> reader.skipValue()
+            }
+        }
+        reader.endObject()
+        return field
+    }
 
+    private fun readValidation(reader: JsonReader): Boolean {
+        var required = false
+        reader.beginObject()
+        while (reader.hasNext()) {
+            when (reader.nextName()) {
+                "required" -> required  = reader.nextBoolean()
+                else -> reader.skipValue()
+            }
+        }
+        reader.endObject()
+        return required
+//        println(reader.readJsonValue().toString())
+    }
+
+    private fun printSections(sections: MutableList<Section>) {
+        IndentedPrint.addIndent()
+        sections.forEach { section ->
+            IndentedPrint.printIndent("${section.title} : ${section.key}")
+            section.fields?.let {
+                IndentedPrint.addIndent()
+                printFields(it)
+                IndentedPrint.subIndent()
+            }
+            section.sections?.let {
+                printSections(it)
+            }
+        }
+        IndentedPrint.subIndent()
+    }
+
+    private fun printFields(fields: MutableList<Field>) {
+        fields.forEach{ field ->
+            if(!field.required)
+                IndentedPrint.printIndent("${field.key} : ${field.required}")
+        }
+    }
 
 }
 
@@ -142,7 +154,18 @@ class Section {
     var title: String = ""
     var key: String = ""
     var sections: MutableList<Section>? = null
-    var fields: String = ""
+    var fields: MutableList<Field>? = null
+}
+
+class Field {
+    var key: String = ""
+    var typeField: String = ""
+    var required: Boolean = false
+//    var validation: Validation? = null
+}
+
+class Validation {
+    var required: Boolean = false
 }
 
 object IndentedPrint {
@@ -165,6 +188,7 @@ object IndentedPrint {
     }
 
     private fun buildIndent() {
+        indent = ""
         for (i in 0 until numIndents) {
 //            indent += "\t"
             indent += "  "
