@@ -143,8 +143,8 @@ class MoshiStreamingReader {
 
     private fun printFields(fields: MutableList<Field>) {
         fields.forEach{ field ->
-            if(!field.required)
-                IndentedPrint.printIndent("${field.key} : ${field.required}")
+            if(!field.required && field.typeField != "hidden")
+                IndentedPrint.printIndent("${field.key} : required ${field.required}: typeField ${field.typeField}")
         }
     }
 
